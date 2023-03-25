@@ -24,14 +24,14 @@ int main() {
     char* parent = path_parent(path);
     printf("Parent: %s\n", parent);
 
-    path_free(path);
+    path_free(&path);
 
     char* parent_of_parent = path_parent(parent);
     printf("Parent of parent: %s\n", parent_of_parent);
     
-    path_free(parent);
-    path_free(parent_of_parent);
-
+    path_free(&parent);
+    path_free(&parent_of_parent);
+    
     return EXIT_SUCCESS;
 }
 ```

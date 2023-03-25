@@ -32,7 +32,7 @@ Be sure to path_free() after use.
 char* path_join(unsigned int count, ...);
 
 // Frees path and sets pointer to NULL
-void path_free(char* path);
+void path_free(char** path);
 
 /*
 Creates a new path pointing to the parent.

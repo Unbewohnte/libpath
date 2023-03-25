@@ -124,9 +124,9 @@ char* path_join(unsigned int count, ...) {
 }
 
 // Frees path and sets pointer to NULL
-void path_free(char* path) {
-    free(path);
-    path = NULL;
+void path_free(char** path) {
+    free(*path);
+    *path = NULL;
 }
 
 /*
@@ -171,7 +171,8 @@ char* path_parent(const char* path) {
     base_path[last_separator_index] = '\0';
 
     // free temporary cleaned path
-    path_free(clean_path);
+    path_free(&clean_path);
 
     return base_path;
 }
+
