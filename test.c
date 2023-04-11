@@ -30,5 +30,12 @@ int main() {
     path_free(&parent);
     path_free(&parent_of_parent);
     
+    char* windows_path = path_join(2, "C:\\Documents\\", "file.txt");
+    printf("Windows path: %s\n", windows_path);
+    path_to_native_separators(windows_path);
+    printf("Windows path with native separators: %s\n", windows_path);
+
+    path_free(&windows_path);
+
     return EXIT_SUCCESS;
 }

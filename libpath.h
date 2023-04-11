@@ -39,3 +39,11 @@ Creates a new path pointing to the parent.
 Be sure to path_free() on the base as well after use.
 */
 char* path_parent(const char* path);
+
+/*
+Swaps Windows' path separators (\) in given path with
+POSIX path separators (/) if compiled for POSIX systems
+and the other way around. Calls path_clean on the resulting
+path 
+*/
+void path_to_native_separators(char* path);

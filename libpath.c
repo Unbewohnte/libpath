@@ -176,3 +176,24 @@ char* path_parent(const char* path) {
     return base_path;
 }
 
+/*
+Swaps Windows' path separators (\) in given path with
+POSIX path separators (/) if compiled for POSIX systems
+and the other way around. Calls path_clean on the resulting
+path 
+*/
+void path_to_native_separators(char* path) {
+    if (!path) {
+        return;
+    }
+
+    size_t path_len = strlen(path);
+
+    for (size_t i = 0; i < path_len; i++) {
+        if (path[i] == '\\' || path[i] == '/') {
+            path[i] = PATH_SEPARATOR;
+        }
+    }
+
+    path_clean(path);
+}
